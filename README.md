@@ -1,29 +1,23 @@
-# LLM-PROJECTS-
-This repository contains my projects on Large Language Models, including document retrieval, embeddings, and QA systems.
-Question_&_Answer
-# 📚 PDF Retrieval QA with LangChain + FAISS + OpenAI
 
-This project demonstrates how to build a **retrieval-based question answering system** using:
-- [LangChain](https://www.langchain.com/)  
-- [FAISS](https://faiss.ai/) (Facebook AI Similarity Search)  
-- [OpenAI Embeddings](https://platform.openai.com/docs/guides/embeddings)
+# 🤖 LLM-Projects
 
-It allows you to:
-1. Load and embed PDF documents.
-2. Store the embeddings locally using FAISS.
-3. Retrieve relevant chunks of text based on user queries.
-4. Ask questions and get answers directly from your documents.
+This repository is a collection of projects I’m building with **Large Language Models (LLMs)**.  
+It serves as both a learning journey and a showcase of practical applications of LangChain, OpenAI, FAISS, and related AI tools.  
 
 ---
 
-## 🚀 Features
-- PDF loading and text chunking
-- OpenAI embeddings with FAISS vector store
-- Persistent local storage (`docs/faiss/`)
-- Retriever setup for similarity search
-- Question answering over documents
+## 📂 Projects
+
+### 1. [📚 PDF Retrieval QA](./pdf-retrieval-qa)
+A **question-answering system** that allows querying PDF documents using:
+- **LangChain** for pipeline orchestration  
+- **OpenAI embeddings** for vectorization  
+- **FAISS** for efficient vector search  
+
+**Features:**  
+✔️ Load PDFs and split into chunks  
+✔️ Store embeddings locally (FAISS)  
+✔️ Perform similarity or MMR retrieval  
+✔️ Ask natural-language questions and get answers  
 
 ---
-
-## 📂 Project Structure
-

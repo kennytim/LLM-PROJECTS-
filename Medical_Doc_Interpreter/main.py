@@ -1,18 +1,34 @@
 
-from support import init_chain, analyze_pdf_lab_report
-import tempfile
 import streamlit as st
-st.set_page_config(page_title="Lab Test Interpreter", page_icon="🧪", layout="wide")
+import tempfile
+from support import init_chain, analyze_pdf_lab_report
+
+st.set_page_config(page_title="Lab Test Interpreter", page_icon="🧪")
 st.title("🧪 Lab Test Interpreter")
-st.markdown("Upload your **lab test report** (PDF or text) and get an easy-to-understand summary.")
 
-chain = init_chain()  # do this once, maybe at top-level or in session state
+chain = init_chain()
 
-uploaded_file = st.file_uploader("📂 Upload Lab Test Report", type=["pdf", "txt"])
- # Save uploaded PDF to a temporary file
+uploaded_file = st.file_uploader("Upload your lab test PDF", type=["pdf"])
+
+if uploaded_file is not None:
+    # Save to a proper temporary file
     with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
         tmp_file.write(uploaded_file.getbuffer())
-        tmp_pdf_path = tmp_file.name  # this is the temp file path
+        tmp_pdf_path = tmp_file.name  # Use this path in PyPDFLoader
+
+    # Analyze PDF using the temp path
+    with st.spinner("🔍 Analyzing your report..."):
+        try:
+            summary = analyze_pdf_lab_report(tmp_pdf_path, chain)
+            st.success("✅ Analysis complete!")
+            with st.expander("📋 Summary of Results"):
+                st.write(summary)
+        except Exception as e:
+            st.error(f"❌ Error analyzing PDF: {e}")
+
+else:
+    st.info("Please upload a PDF file to start analysis.")
+
 
 
 with st.spinner("🔍 Analyzing your report..."):
@@ -29,6 +45,7 @@ st.metric(label="Cholesterol", value="220 mg/dL", delta="+20 above normal")
 
 st.markdown("---")
 st.caption("Built with ❤️ using Streamlit & LangChain by Kehinde Fagbayibo")
+
 
 
 

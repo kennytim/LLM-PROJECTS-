@@ -2,12 +2,11 @@
 streamlit
 
 # LangChain and community modules
-langchain==1.0.0a5
-
+langchain==1.0.0
 langchain_community
 
 # OpenAI API
-openai
+openai>=1.0.0
 
 # PDF handling
 pypdf
@@ -18,5 +17,6 @@ pypdf
 numpy
 pandas
 matplotlib
+
 
 

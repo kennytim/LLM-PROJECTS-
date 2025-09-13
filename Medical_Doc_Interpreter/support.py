@@ -3,9 +3,8 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
 import os
-from secretkey import openai_api_key
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
-os.environ["OPENAI_API_KEY"] = openai_api_key
 
 from typing import Optional
 from langchain_openai import ChatOpenAI
@@ -117,4 +116,5 @@ def analyze_pdf_lab_report(
 # from support import init_chain, analyze_pdf_lab_report
 # chain = init_chain()
 # summary = analyze_pdf_lab_report("temp.pdf", chain)
+
 # print(summary)

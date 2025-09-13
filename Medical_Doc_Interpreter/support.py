@@ -8,7 +8,7 @@ os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 
 from typing import Optional
-from langchain_openai import ChatOpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -119,6 +119,7 @@ def analyze_pdf_lab_report(
 # summary = analyze_pdf_lab_report("temp.pdf", chain)
 
 # print(summary)
+
 
 
 

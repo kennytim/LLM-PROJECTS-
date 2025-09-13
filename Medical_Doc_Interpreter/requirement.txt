@@ -1,0 +1,17 @@
+# Streamlit for UI
+streamlit
+
+# LangChain and community modules
+langchain
+langchain_community
+
+# OpenAI API
+openai
+
+# PDF handling
+pypdf
+
+# Optional utilities for data manipulation (if needed in future)
+numpy
+pandas
+matplotlib

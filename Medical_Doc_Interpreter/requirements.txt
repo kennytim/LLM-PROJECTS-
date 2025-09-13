@@ -2,7 +2,7 @@
 streamlit
 
 # LangChain and community modules
-langchain
+langchain>=1.0.0
 langchain_community
 
 # OpenAI API
@@ -11,7 +11,10 @@ openai
 # PDF handling
 pypdf
 
+
+
 # Optional utilities for data manipulation (if needed in future)
 numpy
 pandas
 matplotlib
+

@@ -21,3 +21,17 @@ A **question-answering system** that allows querying PDF documents using:
 ✔️ Ask natural-language questions and get answers  
 
 ---
+### 2. [📚 LAB_TEST_INTERPRETER ]
+
+This tool is ideal for:
+- Students and researchers needing quick lab report summaries.
+- Professionals who want automated data extraction from lab reports.
+- Educational purposes to demonstrate PDF processing and AI summarization
+
+
+** Features:**
+- PDF Upload:** Easily upload lab report PDFs.
+- Automated Analysis:** Extracts key information and metrics.
+- Summary Generation:** Generates human-readable summaries from the data.
+- Error Handling:** Gracefully handles missing or invalid data. 
+

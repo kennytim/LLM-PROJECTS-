@@ -1,5 +1,6 @@
 
 from support import init_chain, analyze_pdf_lab_report
+import tempfile
 import streamlit as st
 st.set_page_config(page_title="Lab Test Interpreter", page_icon="🧪", layout="wide")
 st.title("🧪 Lab Test Interpreter")
@@ -8,9 +9,11 @@ st.markdown("Upload your **lab test report** (PDF or text) and get an easy-to-un
 chain = init_chain()  # do this once, maybe at top-level or in session state
 
 uploaded_file = st.file_uploader("📂 Upload Lab Test Report", type=["pdf", "txt"])
-if uploaded_file:
-    with open("temp.pdf", "wb") as f:
-        f.write(uploaded_file.getbuffer())
+ # Save uploaded PDF to a temporary file
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp_file:
+        tmp_file.write(uploaded_file.getbuffer())
+        tmp_pdf_path = tmp_file.name  # this is the temp file path
+
 
 with st.spinner("🔍 Analyzing your report..."):
     summary = analyze_pdf_lab_report("temp.pdf", chain)
@@ -26,5 +29,6 @@ st.metric(label="Cholesterol", value="220 mg/dL", delta="+20 above normal")
 
 st.markdown("---")
 st.caption("Built with ❤️ using Streamlit & LangChain by Kehinde Fagbayibo")
+
 
 
